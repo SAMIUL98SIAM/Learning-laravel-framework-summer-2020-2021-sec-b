@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User List</title>
-</head>
-<body>
-    <h3>User List</h3>
+@extends('../navbar')
+
+	@section('navbar')
+		<a href="/home"> Back</a> |
+		<a href="/logout"> Logout </a> 
+	@endsection
+
+	@section('title')
+	:: List ::
+	@endsection
+
+	@section('page_title')
+	User Lists
+	@endsection
+
+	@section('main_content')
+    
 
     <table border="1">
         <tr>
@@ -31,8 +38,6 @@
                 <a href="/user/delete/{{$user['user_id']}}"> Delete </a> |
             </td>
         </tr>
-    @endforeach
-  
+    @endforeach  
     </table>
-</body>
-</html>
+@endsection

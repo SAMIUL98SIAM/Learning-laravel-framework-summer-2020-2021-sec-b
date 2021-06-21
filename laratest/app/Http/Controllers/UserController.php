@@ -40,6 +40,20 @@ class UserController extends Controller
          
         public function insert(Request $req)
         {
+            if($req->hasFile('image')){
+        
+                $file = $req->file('image');
+                echo "File Name: ".$file->getClientOriginalName()."<br>";
+                echo "File Extension: ".$file->getClientOriginalExtension()."<br>";
+                echo "File Mime Type: ".$file->getMimeType()."<br>";
+                echo "File Size: ".$file->getSize()."<br>";
+    
+                if($file->move('upload', 'abc.'.$file->getClientOriginalExtension())){
+                    echo "success";
+                }else{
+                    echo "error";
+                }
+            }
             $user = new User;
             $user->username = $req->username;
             $user->password = $req->password;
@@ -50,6 +64,8 @@ class UserController extends Controller
             $user->profile_img = '';
             $user->save();
             return redirect()->route('user.index');
+
+
         //     $users = $this->getUserList();
         //     $user = ['id'=>$req->id, 'uname'=>$req->uname, 'email'=>$req->email];
         //     array_push($users,$user);

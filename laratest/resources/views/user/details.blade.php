@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
-</head>
-<body>
+@extends('../navbar')
 
-	<a href="/home"> Back</a> |
-	<a href="/logout"> Logout </a> 
+	@section('navbar')
+		<a href="/home"> Back</a> |
+		<a href="/logout"> Logout </a> 
+	@endsection
 
-	<h2>User Details</h2>
+	@section('title')
+	:: Details ::
+	@endsection
+
+	@section('page_title')
+	User Details
+	@endsection
+
+	@section('main_content')
 
 	<form method="post">
 	
@@ -43,5 +48,5 @@
 		</tr>
 	</table>
 	</form>
-</body>
-</html>
+	@endsection
+

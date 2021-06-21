@@ -1,16 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login Page</title>
-</head>
-<body>
+@extends('../navbar')
 
-	<a href="/home"> Back</a> |
-	<a href="/logout"> Logout </a> 
+	@section('navbar')
+		<a href="/home"> Back</a> |
+		<a href="/logout"> Logout </a> 
+	@endsection
 
-	<h2>Create New User</h2>
+	@section('title')
+	:: Create User ::
+	@endsection
 
-	<form method="post">
+	@section('page_title')
+	Create New User
+	@endsection
+
+	@section('main_content')
+
+	<form method="post" enctype="multipart/form-data">
 	<table>
 		@csrf
 		<tr>
@@ -30,10 +35,13 @@
 			<td><input type="text" name="dept"></td>
 		</tr>
 		<tr>
+			<td>Image</td>
+			<td><input type="file" name="image"></td>
+		</tr>
+		<tr>
 			<td></td>
 			<td><input type="submit" name="Submit" value="Add"></td>
 		</tr>
-	</table>
-	</form>
-</body>
-</html>
+	  </table>
+	 </form>
+@endsection
